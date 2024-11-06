@@ -31,6 +31,8 @@ class ExcelEditor:
         self.cria_widgets()
 
     def cria_widgets(self):
+
+        #Cria o menu "Arquivo"
         menu_bar = tk.Menu(self.janela_principal)
 
 
@@ -44,9 +46,31 @@ class ExcelEditor:
 
 
         menu_arquivos.add_command(label="Sair", command=janela.destroy)
-        
+        menu_arquivos.add_separator()
 
         menu_bar.add_cascade(label="Arquivo", menu=menu_arquivos)
+        
+
+        
+
+        #------------------------------------------------------------------------------------------------
+        #Cria o menu "Editar"
+
+        menu_edicao = tk.Menu(menu_bar, tearoff=0)
+
+        menu_edicao.add_command(label="Renomear coluna", command=janela.destroy)
+        menu_edicao.add_command(label="Remover coluna", command=janela.destroy)
+        menu_edicao.add_command(label="Remover linhas em branco", command=janela.destroy)
+        menu_edicao.add_command(label="Remover linhas alternadas", command=janela.destroy)
+        menu_edicao.add_command(label="Remover Duplicados", command=janela.destroy)
+        menu_edicao.add_command(label="Filtrar", command=janela.destroy)
+        menu_edicao.add_command(label="Group", command=janela.destroy)
+        menu_edicao.add_command(label="Pivot", command=janela.destroy)
+        menu_edicao.add_command(label="Sair", command=janela.destroy)
+        
+
+
+        menu_bar.add_cascade(label="Editar", menu=menu_edicao)
         
         #Define a barra de menu como a barra de menu da janela principal
         self.janela_principal.config(menu=menu_bar)
